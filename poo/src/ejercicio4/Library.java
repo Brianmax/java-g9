@@ -1,11 +1,16 @@
 package ejercicio4;
 
+import poo_basico.Person;
+
 import java.util.ArrayList;
 
 public class Library {
-    private ArrayList<LibraryItem> libraryItems;
-    private ArrayList<LibraryUser> libraryUsers;
+    private ArrayList<LibraryItem> libraryItems = new ArrayList<>();
+    private ArrayList<LibraryUser> libraryUsers = new ArrayList<>();
 
+    public void addItem(LibraryItem item) {
+        libraryItems.add(item);
+    }
     public void loanItem(int itemId, int userId) {
         // verificar que el item exista y este disponible
         // verificar que el usuario exista
@@ -28,6 +33,13 @@ public class Library {
     // => showAllItems();
     // => en caso que el usuario tenga mas de tres items prestados
     // negar el prestamo
+
+    public void showAllItems() {
+        System.out.println("===================Items=================");
+        for(LibraryItem item: libraryItems) {
+            item.showDetails();
+        }
+    }
     private LibraryItem findLibraryItem(int itemId) {
 
         for(LibraryItem item: libraryItems) {
@@ -41,7 +53,7 @@ public class Library {
     private LibraryUser findLibraryUser(int userId) {
 
         for(LibraryUser user: libraryUsers) {
-            if(user.getUserId() == userId) {
+            if(user.getUserId() == userId && user.getLoanedItems().size() < 3) {
                 return user;
             }
         }

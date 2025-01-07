@@ -30,9 +30,12 @@ public class App {
 
         LibraryUser user = new LibraryUser("george12", 12);
 
-        user.showLoanedItems();
+        Library library = new Library();
 
-        user.addLoanedItem(libraryItem2);
+        library.addItem(libraryItem1);
+        System.out.println("=============================================");
+        library.addItem(libraryItem2);
 
+        library.showAllItems();
     }
 }
