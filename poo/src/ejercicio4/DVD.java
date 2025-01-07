@@ -9,4 +9,11 @@ public class DVD extends LibraryItem {
         this.director = director;
         this.duration = duration;
     }
+
+    @Override
+    public void showDetails() {
+        super.showDetails();
+        System.out.println("Director: " + director);
+        System.out.println("Duration: " + duration);
+    }
 }
