@@ -22,4 +22,27 @@ public class LibraryUser {
         loanedItems.add(libraryItem);
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public ArrayList<LibraryItem> getLoanedItems() {
+        return loanedItems;
+    }
+
+    public void setLoanedItems(ArrayList<LibraryItem> loanedItems) {
+        this.loanedItems = loanedItems;
+    }
 }
