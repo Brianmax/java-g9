@@ -31,11 +31,12 @@ public class Main {
 
 
         Computer computer1 = new Computer();
-        computer1.brand = "HP";
-        computer1.model = "ZD23";
-        computer1.ram = 8;
-        computer1.storage = 512;
+        computer1.setBrand("HP");// computer1.brand = "HP";
+        computer1.setModel("ZD23");//computer1.model = "ZD23";
+        computer1.setRam(8);//computer1.ram = 8;
+        computer1.setStorage(512);//computer1.storage = 512;
 
+        System.out.println(computer1.getBrand());
         System.out.println("===========================================");
         computer1.printInfo();
 
@@ -55,6 +56,5 @@ public class Main {
         Person person3 = new Person("Jhon", "Brody", 25);
         Person person4 = new Person();
 
-        Persona persona = new Persona();
     }
 }

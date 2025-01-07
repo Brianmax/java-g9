@@ -2,6 +2,6 @@ package herencia;
 
 public class App {
     public static void main(String[] args) {
-        Persona persona = new Persona();
+        Alumno alumno = new Alumno("George", "Maxi", 13, 15);
     }
 }
