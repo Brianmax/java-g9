@@ -1,8 +1,5 @@
 package ejercicio4;
 
-import poo_basico.Person;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Library {

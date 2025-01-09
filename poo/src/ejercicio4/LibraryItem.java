@@ -10,6 +10,9 @@ public class LibraryItem {
         this.itemId = itemId;
         this.isLoaned = isLoaned;
     }
+    public LibraryItem() {
+
+    }
 
     public String getTitle() {
         return title;
