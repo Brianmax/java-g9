@@ -2,11 +2,13 @@ package ejercicio4;
 
 import poo_basico.Person;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Library {
     private ArrayList<LibraryItem> libraryItems = new ArrayList<>();
     private ArrayList<LibraryUser> libraryUsers = new ArrayList<>();
+
 
     public void addItem(LibraryItem item) {
         libraryItems.add(item);
@@ -38,6 +40,7 @@ public class Library {
         System.out.println("===================Items=================");
         for(LibraryItem item: libraryItems) {
             item.showDetails();
+            System.out.println("========================");
         }
     }
     private LibraryItem findLibraryItem(int itemId) {

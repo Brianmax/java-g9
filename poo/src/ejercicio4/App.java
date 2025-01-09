@@ -1,5 +1,8 @@
 package ejercicio4;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class App {
     public static void main(String[] args) {
 
@@ -37,5 +40,9 @@ public class App {
         library.addItem(libraryItem2);
 
         library.showAllItems();
+
+
+        // Declarar tres variables de tipo LibraryItem
+        // asignarles como valor un objeto DVD o Book
     }
 }
