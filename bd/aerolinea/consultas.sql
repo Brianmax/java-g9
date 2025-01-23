@@ -74,7 +74,11 @@ INNER JOIN vuelos v ON b.id_vuelo_fk = v.id_vuelo;
 
 -- ON DELETE
 
+-- intentamos eliminar el pasajero con el id 3
+-- no se puede ya que tiene boletos que dependen de el
 DELETE FROM pasajeros WHERE id_pasajero = 3;
+
+-- eliminamos todos los boletos que le pertenecen al pasajero con el id 3
 
 DELETE FROM boletos WHERE id_pasajero_fk = 3;
 
