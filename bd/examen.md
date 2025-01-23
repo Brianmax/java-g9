@@ -91,4 +91,4 @@ f. **Tablas Intermedias:**
 - Crear un archivo sql con la definicion de la base de datos (por ejemplo, `biblioteca.sql`).
 - Crear el diagrama de entidad-relación (ERD) del sistema de biblioteca.
 - Crear un archivo de inserción de datos para cada tabla en formato SQL (por ejemplo, `libros_insert.sql`, `autores_insert.sql`, etc.).
-- El nombre del proyecto debe tener el siguiente formato: `nombre_apellido_practica2` (reemplaza `nombre` y `apellido` con tu nombre y apellido) y enviarlo en comprimido usando el mismo formato `nombre_apellido_practica.zip`.
+- El nombre del proyecto debe tener el siguiente formato: `nombre_apellido_practica1` (reemplaza `nombre` y `apellido` con tu nombre y apellido) y enviarlo en comprimido usando el mismo formato `nombre_apellido_practica.zip`.
