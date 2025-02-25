@@ -1,0 +1,20 @@
+{
+    "nombre": "George",
+    "apellido": "Maxi",
+    "edad": 27,
+    "amigos": ["jose", "rafael", "wilson"],
+    "direcciones": [
+        {
+            "calle": "Av Independencia",
+            "numero": 203,
+            "num_departamento": 100,
+            "ciudad": "Arequipa"
+        },
+        {
+            "calle": "Av EEUU",
+            "numero": 202,
+            "num_departamento": 10,
+            "ciudad": "Arequipa"
+        }
+    ] 
+}

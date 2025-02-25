@@ -1,0 +1,34 @@
+
+use('db1')
+db.createCollection("usuarios")
+
+use('db1')
+db.usuarios.insertOne(
+    {
+        "nombre": "George",
+        "apellido": "Maxi",
+        "username": "gmaxi",
+        "password": "12345"
+    }
+)
+
+use('db1')
+db.usuarios.insertMany(
+    [
+        {
+            nombre: "Fiorela",
+            apellido: "Rodriguez",
+            username: "frodrigez",
+            password: "12345"
+        },
+        {
+            nombre: "Andres",
+            apellido: "Velarde",
+            username: "avelarde",
+            password: "12345"
+        }
+    ]
+)
+
+use('db1')
+db.usuarios.find()

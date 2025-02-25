@@ -1,0 +1,70 @@
+
+use('sample_training')
+db.zips.aggregate(
+    {
+        $match: {
+            pop: {
+                $gte: 100000
+            }
+        },
+
+    }
+)
+
+use('sample_training')
+db.zips.aggregate(
+    [
+        {
+            $group: {
+                _id: "$state",
+                totalPop: {$sum: "$pop"}
+            }
+        },
+        {
+            $match: {
+                totalPop: {
+                    $gte: 10000000
+                }
+            }
+        },
+        {
+            $sort: {totalPop: -1}
+        }
+    ]
+)
+
+// retornar las ciudad mas grande y mas pequenia
+// por estado
+
+
+use('sample_training')
+db.zips.find()
+
+use('sample_training')
+db.zips.aggregate(
+    [
+        {
+            $group: {
+                _id: {
+                    state: "$state",
+                    city: "$city"
+                },
+                pop: {
+                    $sum: "$pop"
+                }
+            }
+        },
+        {
+            $sort: {
+                pop: -1
+            }
+        },
+        {
+            $group: {
+                _id: "_id.state"
+            }
+        }
+    ]
+)
+
+// last, first

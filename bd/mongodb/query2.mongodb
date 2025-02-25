@@ -1,0 +1,284 @@
+use('db1')
+db.universidades.insertOne(
+    {
+        nombre: "UNI",
+        carreras: ["Ing Mecanica", "Ing Mecatronica", "Ing Sanitaria", "Ing Electrica"],
+        alumnos: 4000,
+        direccion: {
+            calle: "Av Leon Velarde",
+            numero: 203,
+            distrito: "San Miguel",
+            region: "Lima"
+        },
+        presupuesto: 2000000
+    }
+);
+use('db1')
+db.universidades.insertMany(
+    [
+        {
+            nombre: "PUCP",
+            carreras: ["Ing Mecanica", "Ing Mecatronica", "Derecho", "Psicologia"],
+            alumnos: 10000,
+            direccion: {
+                calle: "Av Universitaria",
+                numero: 499,
+                distrito: "San Isidro",
+                region: "Lima"
+            },
+            presupuesto: 5000000
+        },
+        {
+            nombre: "UPCH",
+            carreras: ["Medicina", "Enfermeria", "Ing Biomedica", "Farmacia"],
+            alumnos: 5000,
+            direccion: {
+                calle: "Av Lima",
+                numero: 243,
+                distrito: "Surco",
+                region: "Lima"
+            },
+            presupuesto: 4000000
+        },
+        {
+            nombre: "UNMSM",
+            carreras: ["Ing Mecanica", "Ing Mecatronica", "Sociologia", "Derecho", "Psicologia"],
+            alumnos: 15000,
+            direccion: {
+                calle: "Av Peru",
+                numero: 238,
+                distrito: "Miraflores",
+                region: "Lima"
+            },
+            presupuesto: 4000000
+        },
+        {
+            nombre: "UNSA",
+            carreras: ["Ing Mecanica", "Ing Mecatronica", "Ing Quimica", "Derecho", "Trabajo Social"],
+            alumnos: 4000,
+            direccion: {
+                calle: "Av Venezuela",
+                numero: 201,
+                distrito: "Cercado",
+                region: "Arequipa"
+            },
+            presupuesto: 2000000
+        }
+    ]
+)
+
+use('db1')
+db.universidades.find()
+
+
+use('db1')
+db.universidades.find(
+    {
+        nombre: "UNI"
+    }
+)
+
+
+use('db1')
+db.universidades.find(
+    {
+        "direccion.region": "Lima"
+    }
+)
+
+use('db1')
+db.universidades.find(
+    {
+        "direccion.region": "Lima"
+    }
+).count()
+
+use('db1')
+db.universidades.find(
+    {
+        "direccion.region": "Lima"
+    },
+    {
+        nombre: true,
+        carreras: true,
+        _id: false
+    }
+)
+
+// operadores
+// operador de comparacion
+// gt, lt, gte, lte
+
+
+use('db1')
+db.universidades.find(
+    {
+        alumnos: {
+            $gte: 7000
+        }
+    }
+)
+
+// traer las universidades que tengan un
+// presupuesto mayor que 5M
+
+
+// operadores booleanos
+// and or
+
+// traer las universidades que tengan un presupuesto
+// mayor igual a 3M y menor igual a 5M
+
+use('db1')
+db.universidades.find(
+    {
+        presupuesto: {
+            $gte: 3000000,
+            $lte: 5000000
+        }
+    }
+)
+
+condicion1 OR condicion2 OR condicion3 OR ...
+
+
+OR [condicion1, condicion2, condicion3, ...]
+
+// $or
+// traer las universidades con el numero de alumnos
+// mayores o iguales a 10k o el presupuesto mayor que 4M
+use('db1')
+db.universidades.find(
+    {
+        $or: [
+            {
+                alumnos: {$gte: 10000}
+            },
+            {
+                presupuesto: {$gt: 4000000}
+            }
+        ]
+    }
+)
+
+// traer las universidades que tengan un presupuesto
+// mayor igual a 3M y menor igual a 5M
+// $and
+
+// traer las universidades con el numero de alumnos mayores iguales a 10k
+// o que el presupuesto mayor igual a 4M
+// es obligatorio que la universidad este en lima
+
+
+
+use('db1')
+db.universidades.find(
+    {
+        "direccion.region": "Lima",
+        $or: [
+            {
+                alumnos: {$gte: 10000}
+            },
+            {
+                presupuesto: {$gt: 4000000}
+            }
+        ],
+        
+    }
+)
+
+use('db1')
+db.universidades.find(
+    {
+        $and [
+            $or: [
+                {
+                    alumnos: {$gte: 10000}
+                },
+                {
+                    presupuesto: {$gt: 4000000}
+                }
+            ],
+            "direccion.region": "Lima"
+        ]
+    }
+)
+
+use('db1')
+db.universidades.find(
+    {
+        "direccion.region": "Lima"
+    }
+)
+
+
+// operador $set
+
+use('db1')
+db.universidades.updateMany(
+    // filtro
+    {
+        alumnos: {
+            $gte: 10000
+        }
+    },
+    {
+        $inc: {
+            presupuesto: 2000000
+        }
+    }
+)
+
+use('db1')
+db.universidades.find(
+    {
+    },
+    {
+        nombre: true,
+        alumnos: true,
+        presupuesto: true,
+        _id: false
+    }
+)
+
+// operador set
+
+use('db1')
+db.universidades.updateMany(
+    // filtro
+    {
+
+    },
+    {
+        $set: {
+            numProfesores: 100
+        }
+    }
+);
+
+use('db1')
+db.universidades.updateMany(
+    // filtro
+    {
+        "direccion.region": "Lima"
+    },
+    {
+        $set: {
+            bono: 30000
+        }
+    }
+);
+
+
+
+use('db1')
+db.universidades.find();
+
+// BD: Sample Training
+
+// buscar los documentos que tengan
+// poblacion(pop) mayor a 100000
+
+// buscar los documentos que su ubicacion
+// esta entre 80 y 150 para X
+// 20 y 100 para Y

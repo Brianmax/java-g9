@@ -1,0 +1,108 @@
+use('db1')
+db.createCollection("users", 
+{
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['nombre', 'apellido', 'password','username'],
+            properties: {
+                nombre: {
+                    bsonType: 'string',
+                    maxLength: 20,
+                    description: "El nombre debe de ser como maximo de 20 caracteres"
+                },
+                apellido: {
+                    bsonType: 'string'
+                },
+                username: {
+                    bsonType: 'string'
+                },
+                password: {
+                    bsonType: 'string',
+                    maxLength: 8
+                },
+                products: {
+                    bsonType: 'array',
+                    items: {
+                        bsonType: 'object',
+                        properties: {
+                            nombre: {
+                                bsonType: 'string'
+                            },
+                            precio: {
+                                bsonType: 'double'
+                            },
+                            comentarios: {
+                                bsonType: 'array',
+                                items: {
+                                    bsonType: 'string'
+                                }
+                            }
+                        }
+                    }
+                },
+                direcciones: {
+                    bsonType:"array",
+                    items:{
+                        bsonType:'object',
+                        properties:{
+                            calle:{
+                                bsonType:'string'
+                            },
+                            distrito: {
+                                bsonType:'string'
+                            },
+                            departamento: {
+                                bsonType:'string'
+                            },
+                            ciudad:{
+                                bsonType:'string'
+                            }
+                        }
+                    }  
+                }
+            }
+        }
+    }
+}
+)
+
+use('db1')
+
+db.users.insertOne(
+    {
+        nombre: "george",
+        apellido: "maxi",
+        username: "gmaxi",
+        password: "1234546"
+    }
+)
+use('db1')
+
+db.users.find()
+
+use('db1')
+
+db.users.insertOne(
+    {
+        nombre: "jose",
+        apellido: "maxi",
+        username: "jmaxi",
+        password: "1234546",
+        products: [
+            {
+                nombre: "Laptop HP",
+                precio: 1999.99,
+                comentarios: ["muy bueno"]
+            }
+        ],
+        direcciones: [
+            {
+                calle: "Calle Leoncio Prado",
+                distrito: "Independencia",
+                departamento: "Arequipa",
+                ciudad: "Arequipa"
+            }
+        ]
+    }
+)
