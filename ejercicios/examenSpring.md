@@ -143,7 +143,8 @@ CREATE TABLE matricula (
     "dni": "87654321",
     "nombre": "Juan",
     "apellido": "Pérez",
-    "email": "jperez@gmail.com"
+    "email": "jperez@gmail.com",
+    "fechaNacimiento": "2000-10-10"
 }
 ```
 2. Buscar el estudiante creado (respuesta):
