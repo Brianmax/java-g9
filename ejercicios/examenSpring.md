@@ -33,8 +33,9 @@ CREATE TABLE estudiante (
 );
 
 CREATE TABLE matricula (
+    matricula_id SERIAL PRIMARY KEY,
     estudiante_dni VARCHAR(20),
-    curso_id SERIAL PRIMARY KEY ,
+    curso_id INT,
     fechaInscripcion DATE,
     FOREIGN KEY (estudiante_dni) REFERENCES estudiante(dni),
     FOREIGN KEY (curso_id) REFERENCES curso(id)
@@ -173,7 +174,8 @@ CREATE TABLE matricula (
     "message": "Matricula encontrada",
     "data": {
       "estudiante": "Juan Pérez",
-      "curso": "Matemáticas I"
+      "curso": "Matemáticas I",
+      "fecha": "2021-10-10"
     }
 }
 ```
