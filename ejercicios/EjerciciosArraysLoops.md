@@ -191,3 +191,56 @@ $$
 $$
 
 Podemos observar que es el número 9, tal como se muestra en el output.
+
+
+# Ejercicio 19
+
+En la Universidad Nacional de Ingeniería, la red local entre los servidores no siempre funciona correctamente. Se descubrió que cuando se envían dos mensajes idénticos, estos se combinan, haciendo que ambos mensajes se conviertan en uno. En esta combinación, el final del primer mensaje coincide con el inicio del segundo, y esta superposición solo puede ocurrir si los caracteres son iguales.
+
+Por ejemplo, si enviamos el mensaje `abrakadabra` de manera consecutiva, es posible que el resultado sea `abrakadabrabrakadabra` o `abrakadabrakadabra`.
+
+Mientras se consulta a la empresa de soporte, debes proporcionar una solución temporal. Para ello, debes encontrar cuál podría ser el mensaje original. Dado el mensaje final, determina si este es el resultado de la mezcla de dos mensajes y, de ser así, identifica un posible mensaje original.
+
+Aquellas situaciones donde los dos mensajes se sobreponen completamente uno sobre el otro, no son considerados mensajes erroneos. De manera similar si los dos mensajes se concatenan sin que exista una mezcla, tampoco son considerados mensajes erroneos (por ejemplo `abcabc`).
+
+## Input
+```
+abrakadabrabrakadabra
+```
+
+##Output
+```
+YES
+abrakadabra
+```
+
+## Input
+```
+ababababa
+```
+
+## Output
+```
+YES
+ababa
+```
+
+## Input
+```
+abcabc
+```
+
+## Output
+```
+NO
+```
+
+## Input
+```
+tatbt
+```
+
+## Output
+```
+NO
+```
